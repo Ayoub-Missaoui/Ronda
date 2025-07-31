@@ -1,5 +1,38 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.btn {
+  border-radius: 5px;
+}
+
+.score-badge {
+  word-break: break-word;
+  text-align: center;
+}
+
 @media screen and (max-width: 480px) {
-    .counter {
-      width: 100%;
-    }
+  .score-row {
+    flex-direction: column;
+    gap: 10px;
   }
+}
+
+.player-name-input {
+  margin-bottom: 1rem;
+}
+
+.score-card {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.score-display {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}

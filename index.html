@@ -11,76 +11,54 @@
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="css/bootstrap.css"/>
   <link rel="stylesheet" href="css/main.css"/>
-  <style>
-    .score-badge {
-      word-break: break-word;
-      text-align: center;
-    }
-    @media screen and (max-width: 480px) {
-      .score-row {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div id="app">
     <div class="container p-3">
-
-      <!-- Stap 1: aantal spelers -->
+      <!-- Step 1: Number of players -->
       <div class="row justify-content-center" v-if="step === 1">
         <div class="col-md-6 py-5 px-2">
           <h3 class="mb-4">Ronda Counter (Rchim) | الروندا (الرشيم)</h3>
-          <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="players" placeholder="Aantal spelers" v-model="digitHolder">
-            <label for="players">Aantal spelers | شحال من واحد نتوما</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="win" placeholder="Win score" v-model="win">
-            <label for="win">Tot hoeveel spelen jullie? | على شحال لاعبين</label>
-          </div>
-          <button class="btn btn-primary w-100" @click="validateStepOne">Volgende</button>
+          <player-count-form 
+            :digit-holder="digitHolder"
+            :win="win"
+            @update-digit-holder="digitHolder = $event"
+            @update-win="win = $event"
+            @validate="validateStepOne">
+          </player-count-form>
         </div>
       </div>
 
-      <!-- Stap 2: gebruikersnamen -->
+      <!-- Step 2: Player names -->
       <div class="row justify-content-center" v-if="step === 2">
         <div class="col-md-6 py-5 px-2">
-          <h3 class="mb-4">Gebruikersnamen invullen | شكون لي لاعب</h3>
-          <username 
-            v-for="(user, index) in Number(usersCounter)" 
-            :key="index" 
-            :index="index"
-            :value="users[index]"
-            @get-user="getUserName">
-          </username>
-          <div class="d-flex justify-content-between mt-3">
-            <button class="btn btn-secondary" @click="step = 1">← Terug</button>
-            <button class="btn btn-success" @click="proceedToScores" :disabled="users.length < usersCounter">Verder naar scores →</button>
-          </div>
+          <player-names-form
+            :users-counter="usersCounter"
+            :users="users"
+            @go-back="goBackToStep1"
+            @proceed="proceedToScores"
+            @update-user="getUserName">
+          </player-names-form>
         </div>
       </div>
 
-      <!-- Stap 3: scores -->
+      <!-- Step 3: Scores -->
       <div class="row justify-content-center" v-if="step === 3">
         <div class="col-md-6 pb-5 px-2">
-          <h3 class="mb-4">Scores</h3>
-          <score 
-            v-for="(user, index) in users" 
-            :key="index" 
-            :username="user" 
-            :win="win">
-          </score>
-          <button class="btn btn-secondary mt-4 w-100" @click="step = 2">← Terug naar namen</button>
+          <score-board
+            :users="users"
+            :win="win"
+            :scores="scores"
+            @go-back="goBackToStep2"
+            @update-score="updateScore">
+          </score-board>
         </div>
       </div>
-
     </div>
   </div>
 
   <script src="js/vue.js"></script>
-  <script src="js/bootstrap.js"></script>
+  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
