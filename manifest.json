@@ -1,0 +1,20 @@
+{
+  "name": "Ronda Score Teller",
+  "short_name": "Ronda",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffc107",
+  "icons": [
+    {
+      "src": "icons/ronda-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/ronda-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
