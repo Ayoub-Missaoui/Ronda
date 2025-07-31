@@ -49,6 +49,12 @@ new Vue({
         this.$set(this.scores, index, 0);
       }
     },
+    resetScore(index) {
+      this.$set(this.scores, index, 0);
+    },
+    resetAllScores() {
+      this.scores = new Array(this.usersCounter).fill(0);
+    },
     goBackToStep1() {
       this.users = [];
       this.scores = [];

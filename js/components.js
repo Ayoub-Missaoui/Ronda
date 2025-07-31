@@ -45,6 +45,9 @@ Vue.component('score-board', {
   template: `
     <div>
       <h3 class="mb-4">Scores</h3>
+      <button class="btn btn-warning mb-3 w-100" @click="$emit('reset-all-scores')">
+        Reset All Scores | A0 عود 
+      </button>
       <div class="card mb-4 shadow-sm score-card" v-for="(user, index) in users" :key="index">
         <div class="card-body">
           <h5 class="card-title text-center" style="word-break: break-word;">{{ user }}</h5>
