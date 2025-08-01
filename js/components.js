@@ -54,29 +54,29 @@ Vue.component('score-board', {
           <p class="text-center fs-4 score-display">Score: {{ scores[index] }}</p>
           
           <div class="row g-2">
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-danger w-100" @click="$emit('update-score', {index, value: -1})">-1</button>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-danger w-100" @click="$emit('update-score', {index, value: -2})">-2</button>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-danger w-100" @click="$emit('update-score', {index, value: -5})">-5</button>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-danger w-100" @click="$emit('update-score', {index, value: -10})">-10</button>
             </div>
 
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-success w-100" @click="$emit('update-score', {index, value: 1})">+1</button>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-success w-100" @click="$emit('update-score', {index, value: 2})">+2</button>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-success w-100" @click="$emit('update-score', {index, value: 5})">+5</button>
             </div>
-            <div class="col-6 col-sm-3">
+            <div class="col-3 col-sm-3">
               <button class="btn btn-success w-100" @click="$emit('update-score', {index, value: 10})">+10</button>
             </div>
           </div>
