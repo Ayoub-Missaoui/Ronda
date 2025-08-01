@@ -2,6 +2,16 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js');
 }
 
+// Prevent double-tap zoom
+document.addEventListener('dblclick', function(e) {
+  e.preventDefault();
+}, { passive: false });
+
+// Prevent pinch zoom
+document.addEventListener('gesturestart', function(e) {
+  e.preventDefault();
+});
+
 new Vue({
   el: "#app",
   data: {

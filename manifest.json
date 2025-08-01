@@ -5,6 +5,10 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffc107",
+  "ios": {
+    "prefer_related_applications": false,
+    "suppresses_incremental_rendering": true
+  },
   "icons": [
     {
       "src": "icons/ronda-192.png",

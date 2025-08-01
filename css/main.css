@@ -1,5 +1,22 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html {
+  touch-action: manipulation;
+}
+
 body {
   background-color: #f8f9fa;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .card {
